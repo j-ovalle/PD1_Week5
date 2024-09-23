@@ -1,0 +1,15 @@
+<aura:component>
+    <aura:attribute name="contacts" type="List" />
+    <aura:registerEvent name="removeContactEvent" type="c:removeContactEvent"/>
+
+    <aura:iteration items="{!v.contacts}" var="contact" indexVar="index">
+        <div class="slds-grid slds-p-around_small">
+            <div class="slds-col slds-size_2-of-3">
+                <p>{!contact.fullName}</p>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+                <lightning:button label="Remove" variant="destructive" onclick="{!c.removeContact}" value="{!index}"/>
+            </div>
+        </div>
+    </aura:iteration>
+</aura:component>

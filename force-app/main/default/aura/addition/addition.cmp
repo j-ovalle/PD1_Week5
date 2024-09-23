@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <aura:attribute name="num1" type="Integer" default="100" />
+    <aura:attribute name="num2" type="Integer" default="20" />
+    <aura:attribute name="sum" type="Integer" />
+
+    <h1> Addition of Two Numbers </h1>
+    <div class="container">
+		<div>
+            {!v.num1} + {!v.num2} = {!v.sum}
+        </div>
+        <br/>
+        <p>
+            <lightning:button label="Submit" onclick="{!c.handleSubmit}"/>
+        </p>
+    </div>
+</aura:component>
