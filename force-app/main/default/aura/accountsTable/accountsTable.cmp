@@ -1,0 +1,35 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="AccountController">
+    <aura:attribute name="accs" type="Account[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead> 
+            <tr class="slds-text-title_caps">
+                <th scope="col">
+                    <div class="slds-truncate" title="Account Name">Account Name</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Industry">Industry</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Phone">Phone</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.accs}" var="item">
+                <tr class="slds-hint-parent">
+                    <td data-label="Account Name">
+                        <div class="slds-truncate" title="{!item.Name}">{!item.Name}</div>
+                    </td>
+                    <td data-label="Industry">
+                        <div class="slds-truncate" title="{!item.Industry}">{!item.Industry}</div>
+                    </td>
+                    <td data-label="Phone">
+                        <div class="slds-truncate" title="{!item.Phone}">{!item.Phone}</div>
+                    </td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>

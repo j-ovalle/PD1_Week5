@@ -12,9 +12,7 @@
             <div class="slds-m-top_medium">
                 <lightning:button label="Add Contact" variant="brand" onclick="{!c.handleAddContact}"/>
             </div>
-            <!-- Child component to display the list of contacts -->
             <c:contactList contacts="{!v.contacts}" />
-            <!-- Save all contacts button -->
             <aura:renderIf isTrue="{!v.contacts.length > 0}">
                 <div class="slds-m-top_medium">
                     <lightning:button label="Save All Contacts" variant="brand" onclick="{!c.handleSaveAll}"/>
@@ -22,6 +20,6 @@
             </aura:renderIf>
         </p>
     </lightning:card>
-    <!-- Handler for removing contact -->
+    
     <aura:handler name="removeContactEvent" event="c:removeContactEvent" action="{!c.handleRemoveContact}"/>
 </aura:component>
