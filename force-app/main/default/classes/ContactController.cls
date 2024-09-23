@@ -18,12 +18,11 @@ public class ContactController {
         try {
             List<Contact> contactsToInsert = new List<Contact>();
 
-            // Iterate over the contact list and create new Contact records
             for (Map<String, String> contactMap : contactList) {
-                Contact newContact = new Contact();
-                newContact.FirstName = contactMap.get('firstName');
-                newContact.LastName = contactMap.get('lastName');
-                contactsToInsert.add(newContact);
+                Contact con = new Contact();
+                con.FirstName = contactMap.get('firstName');
+                con.LastName = contactMap.get('lastName');
+                contactsToInsert.add(con);
             }
 
             if (!contactsToInsert.isEmpty()) {
@@ -33,4 +32,18 @@ public class ContactController {
             throw new AuraHandledException('An error occurred while saving the Contacts');
         }
     }
+
+    @AuraEnabled(cacheable=true)
+    public static List<Contact> getContacts() {
+        return [
+            SELECT 
+                Id, 
+                FirstName, 
+                LastName, 
+                Email 
+            FROM Contact
+            WHERE Email != null
+            LIMIT 15
+        ];
+    }    
 }

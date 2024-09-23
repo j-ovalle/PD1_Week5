@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Contact List">
+        <lightning-button label="Refresh Contacts" onclick={handleRefresh} class="slds-m-bottom_medium"></lightning-button>
+        <lightning-datatable
+            key-field="Id"
+            data={contacts}
+            columns={columns}
+            hide-checkbox-column="true"
+            class="slds-m-bottom_medium">
+        </lightning-datatable>
+    </lightning-card>
+</template>

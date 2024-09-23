@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Platform Event Listener">
+        <template if:true={eventMessages.length}>
+            <ul>
+                <template for:each={eventMessages} for:item="eventMessage">
+                    <li key={eventMessage.message}>{eventMessage.message}</li>
+                </template>
+            </ul>
+        </template>
+        <template if:false={eventMessages.length}>
+            <p>No platform events received yet.</p>
+        </template>
+    </lightning-card>
+</template>

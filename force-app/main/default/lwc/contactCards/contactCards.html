@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Contact Cards">
+        <lightning-button label="Refresh Contacts" onclick={handleRefresh} class="slds-m-bottom_medium"></lightning-button>
+        <lightning-layout multiple-rows>
+            <template for:each={contacts} for:item="contact">
+                <lightning-layout-item key={contact.Id} size="4">
+                    <c-contact-card contact={contact}></c-contact-card>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+    </lightning-card>
+</template>
